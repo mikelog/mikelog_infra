@@ -12,6 +12,9 @@ ssh -i ~/.ssh/id_rsa lmi@35.210.90.82 -A -t  ssh -t 10.132.0.3
 правим конфиг  на локальной машине vi ~/.ssh/config и приводим к такому виду
 
 Host someinternalhost
+
 HostName 10.132.0.3
+
 User lmi
+
 ProxyCommand ssh lmi@35.210.90.82  -W %h:%p
