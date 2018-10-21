@@ -18,3 +18,7 @@ HostName 10.132.0.3
 User userName
 
 ProxyCommand ssh userName@35.210.90.82  -W %h:%p
+
+
+ bastion_IP = 35.210.90.82
+ someinternalhost_IP = 10.132.0.3
