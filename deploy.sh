@@ -8,7 +8,8 @@ then
  echo "git clone failed"
  exit
 else
- cd ~/reddit && bundle install
+ cd ~/reddit 
+ bundle install
 fi
 
 puma_status=$(ps aux | grep puma | grep ":9292" -c)
