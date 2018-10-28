@@ -36,6 +36,6 @@ startup_url:
 gcloud compute instances create reddit-app   --boot-disk-size=10GB   --image-family ubuntu-1604-lts   --image-project=ubuntu-os-cloud   --machine-type=g1-small   --tags puma-server   --restart-on-failure --metadata startup-script-url=https://mydomain.com/startup-script.sh
 
 
-testapp_IP=35.240.80.129
+testapp_IP=35.189.249.202
 
 testapp_port=9292
