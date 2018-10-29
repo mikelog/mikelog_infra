@@ -23,3 +23,19 @@ ProxyCommand ssh userName@35.210.90.82  -W %h:%p
 bastion_IP=35.210.90.82
  
 someinternalhost_IP=10.132.0.3
+
+HomeWork4
+Задание *
+Создание правила фаервола, с применением на инсанс:
+gcloud compute firewall-rules create puma-server-port --action allow --rules tcp:9292 --target-tags puma-server --source-ranges 0.0.0.0/0
+
+startup_script из файла через гугл СДК:
+gcloud compute instances create reddit-app   --boot-disk-size=10GB   --image-family ubuntu-1604-lts   --image-project=ubuntu-os-cloud   --machine-type=g1-small   --tags puma-server   --restart-on-failure   --metadata-from-file startup-script=./startup_script.sh
+
+startup_url:
+gcloud compute instances create reddit-app   --boot-disk-size=10GB   --image-family ubuntu-1604-lts   --image-project=ubuntu-os-cloud   --machine-type=g1-small   --tags puma-server   --restart-on-failure --metadata startup-script-url=https://mydomain.com/startup-script.sh
+
+
+testapp_IP=35.189.249.202
+
+testapp_port=9292
