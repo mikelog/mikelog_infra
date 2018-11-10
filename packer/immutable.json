@@ -1,7 +1,7 @@
 {
     "variables": {
     "project_id": null,
-    "source_image_family": null,
+    "source_image_family": "image-src",
     "machine_type": "f1-micro",
     "disk_size": "10",
     "disk_type": "pd-ssd",
@@ -22,13 +22,18 @@
             "network": "{{user `network`}}",
             "tags": "{{user `tags`}}",
             "image_name": "reddit-base-{{timestamp}}",
-            "image_family": "reddit-base",
+            "image_family": "reddit-full",
             "zone": "{{user `zone`}}",
             "ssh_username": "{{user `ssh_username`}}"
         }
     ],
     "provisioners": [
-        {
+       {
+        "type": "file",
+        "source": "./files/puma.service",
+        "destination": "puma.service"
+       },
+       {
         "type": "shell",
         "script": "./scripts/install_ruby.sh",
         "execute_command": "sudo {{.Path}}"
@@ -37,6 +42,17 @@
         "type": "shell",
         "script": "./scripts/install_mongodb.sh",
         "execute_command": "sudo {{.Path}}"
+       },
+       {
+        "type": "shell",
+        "script": "./scripts/deploy.sh",
+        "execute_command": "sudo {{.Path}}"
+       },
+        {
+         "type": "shell",
+         "inline":["sudo mv ./puma.service /etc/systemd/system/",
+                  "sudo systemctl enable puma"
+                  ]
        }
    ]
 }

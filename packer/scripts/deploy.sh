@@ -1,7 +1,7 @@
 #!/bin/sh
 #должен содержать команды скачивания кода, установки зависимостей через bundler и запуск приложения
 
-
+cd ~
 git clone -b monolith https://github.com/express42/reddit.git
 if ! [ -d ./reddit/ ]
 then
