@@ -1,0 +1,12 @@
+{
+ "project_id": "infra-00007",
+ "source_image_family": "ubuntu-1604-lts",
+ "machine_type": "f1-micro",
+ "disk_size": "16",
+ "disk_type": "pd-ssd",
+ "image_description": "My first own image via PACKER",
+ "network": "default",
+ "ssh_username": "appuser",
+ "zone": "asia-east1-b"
+}
+
