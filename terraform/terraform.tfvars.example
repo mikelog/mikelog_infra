@@ -1,5 +1,5 @@
 project = "infra-uid"
-public_key_path = "~/.ssh/sshuser.pub"
+public_key_path = "~/.ssh/appuser.pub"
 disk_image = "reddit-base"
-private_key_path = "~/.ssh/sshuser"
+private_key_path = "~/.ssh/appuser"
 
