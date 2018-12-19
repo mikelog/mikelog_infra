@@ -118,6 +118,7 @@ output "lb_ip_addr" {
 }
 
 
+
 HW#7 Terraform-2
 
 Импортировал текущие параметры инфраструктуры в стейт файл terrafrom import
