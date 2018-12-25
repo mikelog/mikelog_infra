@@ -70,20 +70,33 @@ gcloud compute instances create reddit-app  --image-project=moonlit-watch-219508
 HW#6
 Добавления ssh-ключей нескольких пользователей в прокт была использована следующая конструкция:
 resource "google_compute_project_metadata" "ssh_keys" {
+
  metadata {
+
    ssh-keys= <<EOF
+
     appuser:${file(var.public_key_path)}
+
     appuser1:${file(var.public_key_path)}
 EOF
+
  }
+
 }
+
  при terraform apply все ранее  добавленные ключи были перезаписаны тем, что  было указано в выше приведеной конструкции.
 в случае использования конструкции 
+
 resource "google_compute_project_metadata" "ssh_keys" {
+
  metadata {
+
    ssh-keys= "appuser:${file(var.public_key_path)}"
+
    ssh-keys= "appuser1:${file(var.public_key_path)}"
+
  }
+
 }
 эффект аналогичный, за исключением одного момента, в ssh ключи проекта на gcloud пропишется последний указанный ключ
 То есть, в случае использования терраформ для определения доступа по ssh,  от использовая веб интерфейсе необходимо отказаться, а все ключи для проекта регисрировать через main.tf
@@ -99,11 +112,36 @@ output "app_external_ip" {
  value = "${google_compute_instance.app.*.network_interface.0.access_config.0.assigned_nat_ip}"
 }
 
-
 для вывода IP балансировщика 
 output "lb_ip_addr" {
  value = "${google_compute_global_forwarding_rule.default.ip_address}"
 }
+
+
+
+HW#7 Terraform-2
+
+Импортировал текущие параметры инфраструктуры в стейт файл terrafrom import
+
+Созданные отдельные шаблоны пакера для приложения и БД db.json и app.json, созданы образы пакером
+
+Конфиг main.tf разбит на app.tf и db.tf для приложения и БД
+
+Создал файл vpc.tf для правила файервола ssh
+
+Конфигурации разбиты на модули modules/db, modules/app
+
+Модули импортированы через terraform get
+
+Параметризовал модули
+
+Конфигурация инфраструктуры разбита на prod и stage окружения
+storage-bucket.tf - описание двух бакетов GCP для хранения бэкэндов для stage и prod: reddit-state-stage, reddit-state-prod
+
+stage/backend.tf, prod/backend.tf - описание конфигурации бэкэнда для соответствующего окружения.
+При одновременном запуске терраформа для создания инстанса, будет выдано сообщение, что стэйт уже используется.
+
+Для модулей app и db переменная use_provisioner отвечает за включение/отключение провиженера, тип boolean, значение по умолчанию true.
 
 
 
