@@ -22,7 +22,7 @@
 	    "image_description": "{{user `image_description`}}",
             "network": "{{user `network`}}",
             "tags": "{{user `tags`}}",
-            "image_name": "reddit-app-base-{{isotime \"2006-01-02\"}}",
+            "image_name": "reddit-app-base-{{isotime \"2006-01-02t120000\"}}",
             "image_family": "{{user `image_family`}}",
             "zone": "{{user `zone`}}",
             "ssh_username": "{{user `ssh_username`}}"
