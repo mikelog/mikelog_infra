@@ -3,5 +3,8 @@ public_key_path = "~/.ssh/appuser.pub"
 disk_image = "reddit-base"
 private_key_path = "~/.ssh/appuser"
 inst_cnt = 1
+app_disk_image = "reddit-app-image"
+db_disk_image = "reddit-db-image"
+
 
 
