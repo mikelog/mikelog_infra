@@ -167,5 +167,20 @@ HW Ansible-1
  - packer validate для всех шаблонов 
  - terraform validate и tflint для окружений stage и prod
  - ansible-lint для плейбуков Ansible
+ - Освоена утилита travis lint, так как при написании .travis.yml был использован оператор if с объемной конструкцией, то Трэвич не мог распарсить файл, благодаря это утилите была найдена ошибка и как ее надо решить. Решение было таким 
+``` - if [] 
+   some actions
+  else 
+   some actions
+  fi
+```
+Заменить на
+``` - |
+   if []
+    some actions
+   else 
+    some actions
+   fi      
+```
 9. Встроен бейдж в README.md ( источник [Travis Docs](https://docs.travis-ci.com/user/status-images/))
  

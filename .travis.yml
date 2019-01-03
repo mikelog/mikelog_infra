@@ -7,7 +7,8 @@ before_install:
  - curl https://raw.githubusercontent.com/express42/otus-homeworks/2018-09/run.sh | bash
  - sudo pip install --upgrade pip
 install:
- - if [`uname -m' = x86_64 ]; then
+ - |
+   if [ `uname -m` = x86_64 ]; then
      #packer
      wget https://releases.hashicorp.com/packer/${PACKER_V}/packer_${PACKER_V}_linux_amd64.zip -O packer.zip
      sudo unzip packer.zip -d /usr/bin
@@ -18,7 +19,7 @@ install:
      wget https://github.com/wata727/tflint/releases/download/v0.7.2/tflint_linux_amd64.zip -O tflint.zip
      sudo unzip tflint.zip -d /usr/bin
      #ans&ans-lint
-    else 
+   else 
      #packer
      wget https://releases.hashicorp.com/packer/${PACKER_V}/packer_${PACKER_V}_linux_i386.zip -O packer.zip
      sudo unzip packer.zip -d /usr/bin
@@ -29,10 +30,9 @@ install:
      wget https://github.com/wata727/tflint/releases/download/v0.7.2/tflint_linux_i386.zip -O tflint.zip
      sudo unzip tflint.zip -d /usr/bin
      #ans&ans-lint
-    fi 
+   fi 
  - sudo pip install ansible==${ANS_V} ansible-lint==${ANSLINT_V}
  - echo $PATH
- 
 before_script:
  - touch ~/.ssh/appuser ~/.ssh/appuser.pub
  - mv packer/variables.json.example packer/variables.json
