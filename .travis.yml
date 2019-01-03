@@ -44,9 +44,9 @@ script:
  - cd ${TRAVIS_BUILD_DIR}/packer
  - packer validate -var-file=variables.json ubuntu16.json
  - packer validate -var-file=variables.json immutable.json
- - cd ${TRAVIS_BUILD_DIR}
- - packer validate packer/app.json
- - packer validate packer/db.json
+ - cd ${TRAVIS_BUILD_DIR}/packer
+ - packer validate -var-file=variables.json  packer/app.json
+ - packer validate -var-file=variables.json  packer/db.json
  # tf && tflint
  - cd ${TRAVIS_BUILD_DIR}/terraform
  - cd ${TRAVIS_BUILD_DIR}/terraform/stage
