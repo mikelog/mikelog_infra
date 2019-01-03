@@ -6,7 +6,6 @@ env:
 before_install:
  - curl https://raw.githubusercontent.com/express42/otus-homeworks/2018-09/run.sh | bash
  - sudo pip install --upgrade pip
- - if [`uname -m' = x86_64 ]; then 
 install:
   - if [`uname -m' = x86_64 ]; then
      #packer
