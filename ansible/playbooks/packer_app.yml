@@ -9,6 +9,6 @@
         - ruby-full
         - ruby-bundler
         - build-essential
-       state: latest
+       state: present
        autoclean: yes
 

@@ -4,4 +4,5 @@
     - name: Clone repo
       git:
         repo: https://github.com/express42/reddit.git
+        version: master
         dest: /home/appuser/reddit
