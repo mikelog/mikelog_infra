@@ -1,5 +1,5 @@
 # mikelog_infra
-!https://travis-ci.com/Otus-DevOps-2018-09/mikelog_infra.svg?branch=master!:https://travis-ci.com/Otus-DevOps-2018-09/mikelog_infra
+https://travis-ci.com/Otus-DevOps-2018-09/mikelog_infra.svg?branch=master
 
 mikelog Infra repository
 Самостоятельная работа:
