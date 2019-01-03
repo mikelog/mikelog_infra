@@ -2,12 +2,12 @@ dist: trusty
 sudo: required
 language: bash
 env:
-  - PACKER_V=1.3.1 TF_V=0.11.10 TFLINT_V=0.7.2 ANS_V=2.7.1 ANSLINT_V=3.5.1
+ - PACKER_V=1.3.1 TF_V=0.11.10 TFLINT_V=0.7.2 ANS_V=2.7.1 ANSLINT_V=3.5.1
 before_install:
  - curl https://raw.githubusercontent.com/express42/otus-homeworks/2018-09/run.sh | bash
  - sudo pip install --upgrade pip
 install:
-  - if [`uname -m' = x86_64 ]; then
+ - if [`uname -m' = x86_64 ]; then
      #packer
      wget https://releases.hashicorp.com/packer/${PACKER_V}/packer_${PACKER_V}_linux_amd64.zip -O packer.zip
      sudo unzip packer.zip -d /usr/bin
@@ -30,8 +30,8 @@ install:
      sudo unzip tflint.zip -d /usr/bin
      #ans&ans-lint
     fi 
-  - sudo pip install ansible==${ANS_V} ansible-lint==${ANSLINT_V}
-  - echo $PATH
+ - sudo pip install ansible==${ANS_V} ansible-lint==${ANSLINT_V}
+ - echo $PATH
  
 before_script:
  - touch ~/.ssh/appuser ~/.ssh/appuser.pub
