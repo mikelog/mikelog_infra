@@ -167,5 +167,5 @@ HW Ansible-1
  - packer validate для всех шаблонов 
  - terraform validate и tflint для окружений stage и prod
  - ansible-lint для плейбуков Ansible
-9. Встроен бейдж в README.md ( источник https://docs.travis-ci.com/user/status-images/)
+9. Встроен бейдж в README.md ( источник [Travis Docs](https://docs.travis-ci.com/user/status-images/))
  
