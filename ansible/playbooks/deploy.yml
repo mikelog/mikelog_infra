@@ -7,11 +7,12 @@
        dest: /home/appuser/reddit
        version: monolith
       notify: restart puma
-
     - name: Bundle install
       bundler:
         state: present
         chdir: /home/appuser/reddit
+      retries: 3
+      delay: 2
 
   handlers:
   - name: restart puma

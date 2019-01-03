@@ -2,5 +2,5 @@
 - name: Configure MongoDB
   hosts: reddit-db
   become: true
-  roles: 
+  roles:
    - db
