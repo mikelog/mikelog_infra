@@ -1,5 +1,6 @@
 # mikelog_infra
-https://travis-ci.com/Otus-DevOps-2018-09/mikelog_infra.svg?branch=master
+
+[![Build Status](https://travis-ci.com/Otus-DevOps-2018-09/mikelog_infra.svg?branch=master)](https://travis-ci.com/Otus-DevOps-2018-09/mikelog_infra)
 
 mikelog Infra repository
 Самостоятельная работа:
