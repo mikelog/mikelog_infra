@@ -168,14 +168,16 @@ HW Ansible-1
  - terraform validate и tflint для окружений stage и prod
  - ansible-lint для плейбуков Ansible
  - Освоена утилита travis lint, так как при написании .travis.yml был использован оператор if с объемной конструкцией, то Трэвич не мог распарсить файл, благодаря это утилите была найдена ошибка и как ее надо решить. Решение было таким 
-``` - if [] 
+``` 
+ - if [] 
    some actions
   else 
    some actions
   fi
 ```
 Заменить на
-``` - |
+``` 
+ - |
    if []
     some actions
    else 
