@@ -3,6 +3,6 @@
   hosts: all
   become: true
   tasks:
-    - import_role:
-        name: db
-        tasks_from: install_mongo.yml
+     - import_role:
+             name: db
+             tasks_from: install_mongo.yml
