@@ -1,5 +1,5 @@
 ---
 - name: Install ruby and rubygems and required packages
-  apt: 
+  apt:
     name: ['ruby-full', 'ruby-bundler', 'build-essential']
   tags: ruby
