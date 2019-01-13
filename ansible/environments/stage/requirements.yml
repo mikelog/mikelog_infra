@@ -1,5 +1,5 @@
 - src: jdauphant.nginx
   version: v2.21.1
-- src: git@github.com:mikelog/ansible_role_db.git
+- src: git@github.com:mikelog/db.git
   scm: git
   version: master 
