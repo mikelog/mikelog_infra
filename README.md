@@ -1,4 +1,7 @@
 # mikelog_infra
+
+[![Build Status](https://travis-ci.com/Otus-DevOps-2018-09/mikelog_infra.svg?branch=master)](https://travis-ci.com/Otus-DevOps-2018-09/mikelog_infra)
+
 mikelog Infra repository
 Самостоятельная работа:
 1) для входа на someinternalhost  через bastion  по SSH в одну команду, используем
@@ -151,3 +154,35 @@ HW Ansible-1
 1. Создан inventory.JSON файл  похожий на структуру yml файла
 2. Создан скрипт json_inv.py для  динамического формирования inventory  для ansible, через запрос информации с gcloud.
 Структура JSON статического и динамеческого инвентори различается.
+
+## HW Ansible-3
+1. Созданные плейбуки перенесены в раздельные роли.
+2. Создано два окружения Stage и Prod.
+3. Использована комьюнити роль nginx.
+4. Использован Ansible Vault для окружений.
+5. Настроен вывод информации о том, какое окружение используется.
+6. При использовании динамического инвентори пришлось создать файлы переменных в group_vars с именами хостов, к которым они применяются, иначе брались дефолтные значения и на выходе получалось, что mongo слушает только на локахосте, а DATABASE_URL  не содержит хоста сервера баз данных.
+7. Открыт 80й порт через terraform.
+8. Настроен TravisCI на выполенение:
+ - packer validate для всех шаблонов 
+ - terraform validate и tflint для окружений stage и prod
+ - ansible-lint для плейбуков Ansible
+ - Освоена утилита travis lint, так как при написании .travis.yml был использован оператор if с объемной конструкцией, то Трэвич не мог распарсить файл, благодаря это утилите была найдена ошибка и как ее надо решить. Решение было таким 
+``` 
+ - if [] 
+   some actions
+  else 
+   some actions
+  fi
+```
+Заменить на
+``` 
+ - |
+   if []
+    some actions
+   else 
+    some actions
+   fi      
+```
+9. Встроен бейдж в README.md ( источник [Travis Docs](https://docs.travis-ci.com/user/status-images/))
+ 
