@@ -3,12 +3,7 @@
   hosts: all
   become: true
   tasks:
-    - name: Install required packages
-      apt:
-       name:
-        - ruby-full
-        - ruby-bundler
-        - build-essential
-       state: present
-       autoclean: yes
+    - import_role:
+        name: app
+        tasks_from: ruby.yml
 

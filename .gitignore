@@ -1,3 +1,4 @@
+*.tmp
 *.tfstate
 *.tfstate.*.backup
 *.tfstate.backup
@@ -5,3 +6,5 @@
 .terraform/
 *.retry
 jdauphant.nginx
+vagrant_env
+variables.json
